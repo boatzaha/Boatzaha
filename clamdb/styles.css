@@ -1,0 +1,173 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+    background-color: #2c3e50;
+    padding: 15px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff !important;
+}
+
+.navbar-text {
+    color: #b0bec5 !important;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+    padding: 0.75em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table th {
+    background-color: #127de7;
+    color: #fff;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.actions-column {
+    width: 140px;   
+}
+
+.status-green, .status-yellow, .status-red {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.status-green {
+    background-color: #28a745;
+    color: white;
+}
+
+.status-yellow {
+    background-color: #ffc107;
+    color: white;
+}
+
+.status-red {
+    background-color: #dc3545;
+    color: white;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu {
+    background-color: #95a5a6;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+}
+
+.dropdown-item.dropdown-custom {
+    color: #ffffff;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.dropdown-item.dropdown-custom:hover {
+    background-color: #007bff;
+    padding-left: 20px;
+}
+
+.dropdown-item.dropdown-custom:focus {
+    background-color: #8395a7;
+    color: #ffffff;
+}
+
+/* Improved styling for the search form */
+.search-form .form-group {
+    margin-bottom: 10px;
+}
+
+.form-row {
+    margin-bottom: 10px;
+}
+
+.form-row .form-group input, 
+.form-row .form-group select {
+    width: 100%;
+}
+
+.d-flex.align-items-center {
+    align-items: center !important;
+}
+
+.d-flex.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+@media (max-width: 768px) {
+    .d-flex.align-items-center.justify-content-end {
+        justify-content: flex-start !important;
+        margin-top: 10px;
+    }
+}
+
+.search-result-box {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ccffcc;
+    border: 1px solid green;
+    border-radius: 5px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-result-box p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.search-result-box .row {
+    margin-bottom: 5px;
+}
