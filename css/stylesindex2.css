@@ -1,0 +1,135 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 15px;
+    background-color: #1B1464;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-text {
+    color: #bdc3c7;
+    margin-right: 15px;
+}
+
+.navbar-text span {
+    color: #ecf0f1;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0652DD !important;
+}
+
+/* Dropdown Styles */
+.navbar-dark .navbar-nav .nav-item .dropdown-menu {
+    background-color: #1B1464;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+    color: #ffffff;
+    padding: 10px 20px;
+    transition: background-color 0.3s, padding-left 0.3s;
+    background-color: transparent;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: #0652DD;
+    padding-left: 25px;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:focus {
+    background-color: #8395a7;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item + .dropdown-item {
+    border-top: 1px solid #0652DD;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #f5f6fa;
+}
+
+.welcome-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.5em;
+    color: #6c757d;
+}
+
+/* Features Section */
+.features-section {
+    padding: 50px 0;
+}
+
+.feature-box {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box i {
+    font-size: 4em;
+    color: #1B1464;
+    margin-bottom: 20px;
+}
+
+.feature-box h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    color: #1B1464;
+}
+
+/* Footer Styles */
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6c757d;
+}

@@ -1,0 +1,253 @@
+/* General Styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 15px;
+    background-color: #1B1464; /* สีพื้นหลังของ Navbar */
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-text {
+    color: #bdc3c7;
+    margin-right: 15px;
+}
+
+.navbar-text span {
+    color: #ecf0f1;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0652DD !important;
+}
+
+/* Dropdown Styles */
+.navbar-dark .navbar-nav .nav-item .dropdown-menu {
+    background-color: #1B1464; /* สีพื้นหลังของเมนู Dropdown */
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+    color: #ffffff;
+    padding: 10px 20px;
+    transition: background-color 0.3s, padding-left 0.3s;
+    background-color: #1B1464; /* สีพื้นหลังของแต่ละรายการใน Dropdown */
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: #0652DD; /* สีพื้นหลังเมื่อ hover */
+    padding-left: 25px;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:focus {
+    background-color: #1B1464;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item + .dropdown-item {
+    border-top: 1px solid #1B1464; /* เส้นแบ่งระหว่างรายการใน Dropdown */
+}
+
+/* Pagination Centering */
+.pagination {
+    justify-content: center;
+}
+
+.pagination .page-link {
+    color: #0652DD;
+}
+
+.pagination .page-link:hover {
+    background-color: #1289A7;
+    color: white;
+}
+
+.pagination .active .page-link {
+    background-color: #12CBC4;
+    border-color: #12CBC4;
+    color: white;
+}
+
+/* Button Group Styling */
+.btn-group .btn {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; /* ปรับความกว้างของปุ่ม */
+    height: 36px; /* ปรับความสูงของปุ่ม */
+    text-align: center;
+    padding: 0;
+    font-size: 16px; /* เพิ่มขนาดไอคอน */
+    line-height: 1;
+    border-radius: 4px;
+}
+
+/* Disabled Button Styling */
+.btn-group .btn-grey {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Status Badge Styling */
+.status-booked { 
+    color: white; 
+    background-color: green; 
+}
+
+.status-unsuccessful { 
+    color: white; 
+    background-color: red; 
+}
+
+.status-yellow { 
+    color: black; 
+    background-color: #E0A800; 
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+}
+
+/* Additional Styling */
+.alert {
+    display: none;
+}
+
+.btn-refresh {
+    margin-top: 20px;
+}
+
+/* Container Styling */
+.container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Actions Column Width */
+.actions-column {
+    width: 120px;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #f5f6fa;
+}
+
+.welcome-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.5em;
+    color: #6c757d;
+}
+
+/* Features Section */
+.features-section {
+    padding: 50px 0;
+}
+
+.feature-box {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box i {
+    font-size: 4em;
+    color: #192a56;
+    margin-bottom: 20px;
+}
+
+.feature-box h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    color: #192a56;
+}
+
+/* Footer Styling */
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #ffffff;
+    background-color: #1B1464; /* พื้นหลังของ footer */
+    padding: 15px 0;
+}
+
+/* Dropdown Customization */
+.custom-dropdown {
+    background-color: #343a40;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.custom-dropdown option {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom-dropdown:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+/* Dropdown Menu Styling */
+.navbar-dark .navbar-nav .nav-item .dropdown-menu {
+    background-color: #1B1464; /* เปลี่ยนพื้นหลังเป็นสี #1B1464 */
+    border-radius: 5px;
+    border: 1px solid #007bff;
+}
+
+.dropdown-item.dropdown-custom {
+    color: #ffffff;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.dropdown-item.dropdown-custom:hover {
+    background-color: #007bff;
+    padding-left: 20px;
+}
+
+.dropdown-item.dropdown-custom:focus {
+    background-color: #8395a7;
+    color: #ffffff;
+}

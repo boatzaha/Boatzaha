@@ -1,0 +1,204 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 10px;
+    background-color: #1B1464; /* สีพื้นหลังของ Navbar */
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-text {
+    color: #bdc3c7;
+    margin-right: 15px;
+}
+
+.navbar-text span {
+    color: #ecf0f1;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0652DD !important;
+}
+
+/* Dropdown Styles */
+.navbar-dark .navbar-nav .nav-item .dropdown-menu {
+    background-color: #1B1464; /* สีพื้นหลังของเมนู Dropdown */
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+    color: #ffffff;
+    padding: 10px 20px;
+    transition: background-color 0.3s, padding-left 0.3s;
+    background-color: #1B1464; /* สีพื้นหลังของแต่ละรายการใน Dropdown */
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: #0652DD; /* สีพื้นหลังเมื่อ hover */
+    padding-left: 25px;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:focus {
+    background-color: #1B1464;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item + .dropdown-item {
+    border-top: 1px solid #1B1464; /* เส้นแบ่งระหว่างรายการใน Dropdown */
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+    padding: 0.75em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table th {
+    background-color: #127de7;
+    color: #fff;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.actions-column {
+    width: 140px;   
+}
+
+.status-green, .status-yellow, .status-red {
+    background-color: #28a745;
+    color: white;
+    font-size: 0.75em;
+    padding: 3px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 2px;
+}
+
+.status-yellow {
+    background-color: #ffc107;
+}
+
+.status-red {
+    background-color: #dc3545;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu {
+    background-color: #95a5a6;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+}
+
+.dropdown-item.dropdown-custom {
+    color: #ffffff;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.dropdown-item.dropdown-custom:hover {
+    background-color: #007bff;
+    padding-left: 20px;
+}
+
+.dropdown-item.dropdown-custom:focus {
+    background-color: #8395a7;
+    color: #ffffff;
+}
+
+/* Improved styling for the search form */
+.search-form .form-group {
+    margin-bottom: 10px;
+}
+
+.form-row {
+    margin-bottom: 10px;
+}
+
+.form-row .form-group input, 
+.form-row .form-group select {
+    width: 100%;
+}
+
+.d-flex.align-items-center {
+    align-items: center !important;
+}
+
+.d-flex.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+@media (max-width: 768px) {
+    .d-flex.align-items-center.justify-content-end {
+        justify-content: flex-start !important;
+        margin-top: 10px;
+    }
+}
+
+.search-result-box {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ccffcc;
+    border: 1px solid green;
+    border-radius: 5px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-result-box p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.search-result-box .row {
+    margin-bottom: 5px;
+}
