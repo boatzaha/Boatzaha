@@ -77,6 +77,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="icon" href="image/HOWDENLOGO.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+<<<<<<< HEAD
+=======
+        /* ใช้ CSS แบบเดียวกับที่ใช้ในฟอร์ม edit.php */
+>>>>>>> origin/main
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
@@ -176,8 +180,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="class">Income Class:</label>
+<<<<<<< HEAD
                     <select class="form-control" id="class" name="class" required>
                     <option value="AV">AV-Aviation Insurance</option>
+=======
+                    <select class="form-control" id="class" name="class" required>""
+                        <option value="AV">AV-Aviation Insurance</option>
+>>>>>>> origin/main
                         <option value="BBB">BBB-Bankers Blanket Bond Insurance</option>
                         <option value="BPV">BPV-Boiler & Pressure Vessel Insurance</option>
                         <option value="BI">BI-Business Interruption Insurance</option>
@@ -234,8 +243,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="W&I">W&I-Warranty & Indemnity</option>
                         <option value="WCEL">WCEL-Workmen's Compensation and Employer's Liability Insurance</option>
                         <option value="WC">WC-Workmen's Compensation Insurance</option>
+<<<<<<< HEAD
                         <option value="GL">GL-Group Life insurance</option>
 
+=======
+>>>>>>> origin/main
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -298,7 +310,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<<<<<<< HEAD
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+=======
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+>>>>>>> origin/main
     <script>
         function checkStatus(value) {
             var closeDateGroup = document.getElementById('close_date_group');
@@ -317,6 +333,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         function formatCurrency(input) {
             var value = input.value.replace(/,/g, '');
             if (!isNaN(value) && value !== "") {
+<<<<<<< HEAD
                 var parts = value.split('.');
                 parts[0] = parseInt(parts[0]).toLocaleString('en-US');
                 if (parts.length > 1) {
@@ -324,6 +341,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else {
                     input.value = parts[0];
                 }
+=======
+                input.value = parseFloat(value).toLocaleString('en-US', {maximumFractionDigits: 2});
+>>>>>>> origin/main
             } else {
                 input.value = "";
             }

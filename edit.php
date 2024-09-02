@@ -17,6 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST['description'];
     $policy_type = $_POST['policy_type'];
 
+<<<<<<< HEAD
+=======
+    // ตรวจสอบสถานะและกำหนดค่า close_date
+>>>>>>> origin/main
     if ($status == 'Booked' || $status == 'Unsuccessful') {
         $close_date_raw = $_POST['close_date'];
         if (!empty($close_date_raw)) {
@@ -24,12 +28,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($close_date) {
                 $close_date_formatted = $close_date->format('Y-m-d');
             } else {
+<<<<<<< HEAD
                 $close_date_formatted = date('Y-m-d');
             }
         } else {
             $close_date_formatted = date('Y-m-d');
         }
     } else {
+=======
+                // ตั้งค่าเป็นวันที่ปัจจุบันถ้าแปลงวันที่ไม่สำเร็จ
+                $close_date_formatted = date('Y-m-d');
+            }
+        } else {
+            // ถ้าไม่มีการกรอก close_date ให้ตั้งเป็นวันที่ปัจจุบันหรือค่า default
+            $close_date_formatted = date('Y-m-d');
+        }
+    } else {
+        // กำหนดค่าเป็น '0000-00-00' หากสถานะไม่ใช่ Booked หรือ Unsuccessful
+>>>>>>> origin/main
         $close_date_formatted = '0000-00-00';
     }
 
@@ -59,7 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':revenue', $revenue);
     $stmt->bindParam(':premium', $premium);
     $stmt->bindParam(':sum_insured', $sum_insured);
+<<<<<<< HEAD
     $stmt->bindParam(':close_date', $close_date_formatted);
+=======
+    $stmt->bindParam(':close_date', $close_date_formatted); // บันทึกวันที่จริงลงในฐานข้อมูล
+>>>>>>> origin/main
     $stmt->bindParam(':department', $department);
     $stmt->bindParam(':status', $status);
     $stmt->bindParam(':description', $description);
@@ -144,6 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #5a6268;
         }
         .form-row {
+<<<<<<< HEAD
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -158,6 +179,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .form-group {
             margin-bottom: 15px;
+=======
+            margin-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+>>>>>>> origin/main
         }
         .form-control {
             height: calc(1.5em + 0.75rem + 2px);
@@ -201,24 +228,95 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group col-md-6">
                     <label for="class">Income Class:</label>
                     <select class="form-control" id="class" name="class" required>
+<<<<<<< HEAD
                         <!-- Populate class options dynamically here -->
                         <option value="AV" <?= $customer['class'] == 'AV' ? 'selected' : '' ?>>AV-Aviation Insurance</option>
                         <!-- other options... -->
+=======
+                    <option value="AV" <?= $customer['class'] == 'AV' ? 'selected' : '' ?>>AV-Aviation Insurance</option>
+                        <option value="BBB" <?= $customer['class'] == 'BBB' ? 'selected' : '' ?>>BBB-Bankers Blanket Bond Insurance</option>
+                        <option value="BPV" <?= $customer['class'] == 'BPV' ? 'selected' : '' ?>>BPV-Boiler & Pressure Vessel Insurance</option>
+                        <option value="BI" <?= $customer['class'] == 'BI' ? 'selected' : '' ?>>BI-Business Interruption Insurance</option>
+                        <option value="CL" <?= $customer['class'] == 'CL' ? 'selected' : '' ?>>CL-Carrier's Liability Insurance</option>
+                        <option value="CMV" <?= $customer['class'] == 'CMV' ? 'selected' : '' ?>>CMV-Commercial Motor Voluntary Insurance</option>
+                        <option value="CMCV" <?= $customer['class'] == 'CMCV' ? 'selected' : '' ?>>CMCV-Commercial Motorcycle Voluntary Insurance</option>
+                        <option value="CGL" <?= $customer['class'] == 'CGL' ? 'selected' : '' ?>>CGL-Comprehensive General Liability Insurance</option>
+                        <option value="CAR" <?= $customer['class'] == 'CAR' ? 'selected' : '' ?>>CAR-Construction All Risks Insurance</option>
+                        <option value="CPI" <?= $customer['class'] == 'CPI' ? 'selected' : '' ?>>CPI-Contaminated Product Insurance Insurance</option>
+                        <option value="CPM" <?= $customer['class'] == 'CPM' ? 'selected' : '' ?>>CPM-Contractor's Plant & Machinery Insurance</option>
+                        <option value="CYBER" <?= $customer['class'] == 'CYBER' ? 'selected' : '' ?>>CYBER-Cyber Risk Insurance</option>
+                        <option value="D&O" <?= $customer['class'] == 'D&O' ? 'selected' : '' ?>>D&O-Directors & Officers Liability Insurance</option>
+                        <option value="EEI" <?= $customer['class'] == 'EEI' ? 'selected' : '' ?>>EEI-Electronic Equipment Insurance</option>
+                        <option value="BOND" <?= $customer['class'] == 'BOND' ? 'selected' : '' ?>>BOND-Employee Bond Insurance</option>
+                        <option value="EL" <?= $customer['class'] == 'EL' ? 'selected' : '' ?>>EL-Employer's Liability Insurance</option>
+                        <option value="ENV" <?= $customer['class'] == 'ENV' ? 'selected' : '' ?>>ENV-Environmental Liability Insurance</option>
+                        <option value="EXCESS" <?= $customer['class'] == 'EXCESS' ? 'selected' : '' ?>>EXCESS-Erection All Risks Insurance</option>
+                        <option value="FG" <?= $customer['class'] == 'FG' ? 'selected' : '' ?>>FG-Fidelity Guarantee Insurance</option>
+                        <option value="FINE" <?= $customer['class'] == 'FINE' ? 'selected' : '' ?>>FINE-Fine Art Insurance</option>
+                        <option value="FIRE" <?= $customer['class'] == 'FIRE' ? 'selected' : '' ?>>FIRE-Fire Insurance</option>
+                        <option value="FFL" <?= $customer['class'] == 'FFL' ? 'selected' : '' ?>>FFL-Freight Forwarder Liability Insurance</option>
+                        <option value="MRC" <?= $customer['class'] == 'MRC' ? 'selected' : '' ?>>MRC-General Marine Cargo Insurance</option>
+                        <option value="PL" <?= $customer['class'] == 'PL' ? 'selected' : '' ?>>PL-General Public Liability Insurance</option>
+                        <option value="GH" <?= $customer['class'] == 'GH' ? 'selected' : '' ?>>GH-Group Health Insurance</option>
+                        <option value="GLH" <?= $customer['class'] == 'GLH' ? 'selected' : '' ?>>GLH-Group Life and Health Insurance</option>
+                        <option value="GPA" <?= $customer['class'] == 'GPA' ? 'selected' : '' ?>>GPA-Group Personal Accident Insurance</option>
+                        <option value="HPP" <?= $customer['class'] == 'HPP' ? 'selected' : '' ?>>HPP-Hired Purchase Protection Insurance</option>
+                        <option value="IH" <?= $customer['class'] == 'IH' ? 'selected' : '' ?>>IH-Individual Health Insurance</option>
+                        <option value="IMV1" <?= $customer['class'] == 'IMV1' ? 'selected' : '' ?>>IMV1-Individual Motor Voluntary Insurance 1</option>
+                        <option value="IMC1" <?= $customer['class'] == 'IMC1' ? 'selected' : '' ?>>IMC1-Industrial All Risks and Business Interruption Insurance</option>
+                        <option value="IARBI" <?= $customer['class'] == 'IARBI' ? 'selected' : '' ?>>IARBI-Industrial All Risks and Business Interruption Insurance</option>
+                        <option value="IAR" <?= $customer['class'] == 'IAR' ? 'selected' : '' ?>>IAR-Industrial All Risks Insurance</option>
+                        <option value="INLAND" <?= $customer['class'] == 'INLAND' ? 'selected' : '' ?>>INLAND-Inland Transit Insurance</option>
+                        <option value="JW" <?= $customer['class'] == 'JW' ? 'selected' : '' ?>>JW-Jewelers Block Insurance</option>
+                        <option value="MB" <?= $customer['class'] == 'MB' ? 'selected' : '' ?>>MB-Machinery Breakdown Insurance</option>
+                        <option value="HULL" <?= $customer['class'] == 'HULL' ? 'selected' : '' ?>>HULL-Marine Hull Insurance</option>
+                        <option value="MEDMAL" <?= $customer['class'] == 'MEDMAL' ? 'selected' : '' ?>>MEDMAL-Medical Malpractice Insurance</option>
+                        <option value="MN" <?= $customer['class'] == 'MN' ? 'selected' : '' ?>>MN-Money Insurance</option>
+                        <option value="MPI" <?= $customer['class'] == 'MPI' ? 'selected' : '' ?>>MPI-Motor Compulsory Insurance</option>
+                        <option value="OGI" <?= $customer['class'] == 'OGI' ? 'selected' : '' ?>>OGI-OIL & GAS INSURANCE (LIABILITY INSURANCE)</option>
+                        <option value="PA" <?= $customer['class'] == 'PA' ? 'selected' : '' ?>>PA-Personal Accident Insurance</option>
+                        <option value="PRI" <?= $customer['class'] == 'PRI' ? 'selected' : '' ?>>PRI-Political Risk Insurance</option>
+                        <option value="PVIBI" <?= $customer['class'] == 'PVIBI' ? 'selected' : '' ?>>PVIBI-Political Violence and Business Interruption Insurance</option>
+                        <option value="PVI" <?= $customer['class'] == 'PVI' ? 'selected' : '' ?>>PVI-Political Violence Insurance</option>
+                        <option value="PDL" <?= $customer['class'] == 'PDL' ? 'selected' : '' ?>>PDL-Product Liability Insurance</option>
+                        <option value="RECALL" <?= $customer['class'] == 'RECALL' ? 'selected' : '' ?>>RECALL-Product Recall Insurance</option>
+                        <option value="PI" <?= $customer['class'] == 'PI' ? 'selected' : '' ?>>PI-Professional Indemnity Insurance</option>
+                        <option value="P&I" <?= $customer['class'] == 'P&I' ? 'selected' : '' ?>>P&I-Protection & Indemnity</option>
+                        <option value="PLPLI" <?= $customer['class'] == 'PLPLI' ? 'selected' : '' ?>>PLPLI-Public and Product Liability Insurance</option>
+                        <option value="TL" <?= $customer['class'] == 'TL' ? 'selected' : '' ?>>TL-Terminal Liability Insurance</option>
+                        <option value="TERRO" <?= $customer['class'] == 'TERRO' ? 'selected' : '' ?>>TERRO-Terrorism Insurance</option>
+                        <option value="TRADE" <?= $customer['class'] == 'TRADE' ? 'selected' : '' ?>>TRADE-Trade Credit Insurance</option>
+                        <option value="WHL" <?= $customer['class'] == 'WHL' ? 'selected' : '' ?>>WHL-Warehousemen Liability Insurance</option>
+                        <option value="W&I" <?= $customer['class'] == 'W&I' ? 'selected' : '' ?>>W&I-Warranty & Indemnity</option>
+                        <option value="WCEL" <?= $customer['class'] == 'WCEL' ? 'selected' : '' ?>>WCEL-Workmen's Compensation and Employer's Liability Insurance</option>
+>>>>>>> origin/main
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="revenue">Revenue:</label>
+<<<<<<< HEAD
                     <input type="text" class="form-control" id="revenue" name="revenue" value="<?= htmlspecialchars($customer['revenue']) ?>" onblur="formatCurrency(this)" required>
+=======
+                    <input type="text" class="form-control" id="revenue" name="revenue" value="<?= htmlspecialchars($customer['revenue']) ?>" oninput="formatCurrency(this)" required>
+>>>>>>> origin/main
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="premium">Premium:</label>
+<<<<<<< HEAD
                     <input type="text" class="form-control" id="premium" name="premium" value="<?= htmlspecialchars($customer['premium']) ?>" onblur="formatCurrency(this)" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="sum_insured">Sum Insured:</label>
                     <input type="text" class="form-control" id="sum_insured" name="sum_insured" value="<?= htmlspecialchars($customer['sum_insured']) ?>" onblur="formatCurrency(this)" required>
+=======
+                    <input type="text" class="form-control" id="premium" name="premium" value="<?= htmlspecialchars($customer['premium']) ?>" oninput="formatCurrency(this)" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sum_insured">Sum Insured:</label>
+                    <input type="text" class="form-control" id="sum_insured" name="sum_insured" value="<?= htmlspecialchars($customer['sum_insured']) ?>" oninput="formatCurrency(this)" required>
+>>>>>>> origin/main
                 </div>
             </div>
             <div class="form-row">
@@ -246,15 +344,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="date" class="form-control" id="close_date" name="close_date" value="<?= htmlspecialchars($customer['close_date']) ?>">
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="form-group col-md-12">
+=======
+            <div class="form-group">
+>>>>>>> origin/main
                 <label for="policy_type">Policy Type:</label>
                 <select class="form-control" id="policy_type" name="policy_type">
                     <option value="">Select Policy Type</option>
                     <option value="NewRecurring" <?= $customer['policy_type'] == 'NewRecurring' ? 'selected' : '' ?>>New-Recurring</option>
+<<<<<<< HEAD
                     <!-- other options... -->
                 </select>
             </div>
             <div class="form-group col-md-12">
+=======
+                    <option value="NewNonRecurring" <?= $customer['policy_type'] == 'NewNonRecurring' ? 'selected' : '' ?>>New-Non-Recurring</option>
+                    <option value="Renewal" <?= $customer['policy_type'] == 'Renewal' ? 'selected' : '' ?>>Renewal</option>
+                    <option value="ExpandNonRecurring" <?= $customer['policy_type'] == 'ExpandNonRecurring' ? 'selected' : '' ?>>Expand Non Recurring</option>
+                    <option value="ExpandRecurring" <?= $customer['policy_type'] == 'ExpandRecurring' ? 'selected' : '' ?>>Expand Recurring</option>
+                    <option value="Extend" <?= $customer['policy_type'] == 'Extend' ? 'selected' : '' ?>>Extend</option>
+                </select>
+            </div>
+            <div class="form-group">
+>>>>>>> origin/main
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" name="description" rows="2"><?= htmlspecialchars($customer['description']) ?></textarea>
             </div>
@@ -267,6 +380,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+<<<<<<< HEAD
     function checkStatus(value) {
         var closeDateGroup = document.getElementById('close_date_group');
         var closeDateInput = document.getElementById('close_date');
@@ -298,6 +412,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             input.value = "";
         }
     }
+=======
+        function checkStatus(value) {
+            var closeDateGroup = document.getElementById('close_date_group');
+            var closeDateInput = document.getElementById('close_date');
+            document.getElementById('close_date_group').style.display = 'block'; 
+            document.getElementById('close_date').style.borderColor = 'red'; 
+            document.querySelector('label[for="close_date"]').style.color = 'red';
+
+            if (value === 'Booked' || value === 'Unsuccessful') {
+                closeDateGroup.style.display = '';
+                closeDateInput.required = true;
+            } else {
+                closeDateGroup.style.display = 'none';
+                closeDateInput.required = false;
+                closeDateInput.value = '0000-00-00'; // ตั้งค่าเป็น '0000-00-00' เมื่อสถานะไม่ใช่ 'Booked' หรือ 'Unsuccessful'
+            }
+        }
+
+        function formatCurrency(input) {
+            var value = input.value.replace(/,/g, '');
+            if (!isNaN(value) && value !== "") {
+                input.value = parseFloat(value).toLocaleString('en-US', {maximumFractionDigits: 2});
+            } else {
+                input.value = "";
+            }
+        }
+>>>>>>> origin/main
     </script>
 </body>
 </html>

@@ -77,7 +77,11 @@ try {
     $stmt->execute();
     $clams = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+<<<<<<< HEAD
     // ตรวจสอบว่ามีผลลัพธ์ที่เกี่ยวข้องกับการค้นหาสำหรับการแสดงในกรอบสีเขียวหรือไม่
+=======
+    // ตรวจสอบว่ามีผลลัพธ์ที่เกี่ยวข้องกับการค้นหาสำหรับการแสดงในกรอบสีแดงหรือไม่
+>>>>>>> origin/main
     $highlightSearchResult = false;
     if (!empty($search_insure_name) || !empty($search_policy) || !empty($search_insurance)) {
         $highlightSearchResult = true;
@@ -86,7 +90,10 @@ try {
     echo "Error: " . $e->getMessage();
 }
 ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,6 +104,7 @@ try {
     <link rel="icon" href="../image/HOWDENLOGO.png" type="image/png">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../css/stleyesindexclam.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -165,6 +173,53 @@ try {
     <div class="container">
         <h3 class="text-center" style="margin-top:5px;">Search Claim Data</h3>
         <form method="get" action="indexclam.php" class="mb-3 search-form mx-auto" style="max-width: 700px;">
+=======
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index2.php"><img src="../image/HOWDENLOGO.png" alt="Logo" height="40"> Claim Report Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text text-white mr-3">User: <?= htmlspecialchars($username) ?> (<?= htmlspecialchars($role) ?>)</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index2.php">Home Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../clamdb/indexclam.php">Refresh</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php if ($role != 'officer'): ?>
+                            <a class="dropdown-item" href="../dashboard.php">Permission</a>
+                            <a class="dropdown-item" href="../dashboard2.php">Dashboard</a>
+                        <?php endif; ?>
+                        <a class="dropdown-item" href="../index.php">Add Customer</a>
+                        <a class="dropdown-item" href="../clamdb/indexclam.php">Claim Reports</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../logout.php">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3 class="text-center">Search Claim Data</h3>
+        <form method="get" action="indexclam.php" class="mb-3 search-form mx-auto" style="max-width: 700px;">
+            <!-- Search Fields -->
+>>>>>>> origin/main
             <div class="form-row justify-content-center">
                 <div class="form-group col-md-4">
                     <input type="text" id="search_clam" name="search_clam" class="form-control" placeholder="Search by Item or Company" value="<?= htmlspecialchars($search_clam) ?>">
@@ -192,6 +247,7 @@ try {
             </div>
         </form>
 
+<<<<<<< HEAD
         <div class="form-row justify-content-center mb-3">
             <div class="button-group">
                 <a href="create_clam.php" class="btn btn-success">Add Data</a>
@@ -215,11 +271,37 @@ try {
                         <p><strong>Policy:</strong> <?= htmlspecialchars($clams[0]['policy']) ?></p>
                     </div>
                     <div class="col-md-12">
+=======
+        <div class="d-flex justify-content-between mb-3">
+            <a href="create_clam.php" class="btn btn-success">Add Data</a>
+            <a href="export_excel.php?show_new_only=<?= $show_new_only ? '1' : '0' ?>" class="btn btn-info"><i class="fas fa-file-excel"></i> Export to Excel</a>
+        </div>
+        <!-- ส่วนแสดงผลการค้นหาในกรอบสีแดง -->
+        <?php if ($highlightSearchResult && !empty($clams)) : ?>
+            <div class="search-result-box">
+                <p><strong>Search Result:</strong></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Company Name:</strong> <?= htmlspecialchars($clams[0]['company_name']) ?></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Insurance:</strong> <?= htmlspecialchars($clams[0]['insurance']) ?></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Policy:</strong> <?= htmlspecialchars($clams[0]['policy']) ?></p>
+                    </div>
+                    <div class="col-md-6">
+>>>>>>> origin/main
                         <p><strong>Insure Name:</strong> <?= htmlspecialchars($clams[0]['insure_name']) ?></p>
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
+=======
+>>>>>>> origin/main
         <?php endif; ?>
 
         <div class="table-responsive">
@@ -275,7 +357,11 @@ try {
                             $isNew = $clam['is_new'];
                     ?>
                     <tr>
+<<<<<<< HEAD
                         <td><?= htmlspecialchars($clam['id']) ?></td>
+=======
+                        <td><?= htmlspecialchars($clam['id']) ?></td> <!-- เพิ่มแสดง ID -->
+>>>>>>> origin/main
                         <td><?= htmlspecialchars($clam['item']) ?> <?php if ($isNew) echo "<span class='badge badge-warning'>New</span>"; ?></td>
                         <td><?= htmlspecialchars($clam['receive_date']) ?></td>
                         <td><?= htmlspecialchars($clam['company_name']) ?></td>
@@ -294,7 +380,11 @@ try {
                     else:
                     ?>
                     <tr>
+<<<<<<< HEAD
                         <td colspan="9" class="text-center">No data found</td>
+=======
+                        <td colspan="9" class="text-center">No data found</td> <!-- ปรับจำนวนคอลัมน์ให้ตรงกับการเพิ่ม ID -->
+>>>>>>> origin/main
                     </tr>
                     <?php endif; ?>
                 </tbody>
@@ -304,10 +394,18 @@ try {
     <div class="footer">
         <p>Copyright © Boat Patthanapong.URU Version 1.0.0</p>
     </div>
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+=======
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Script for handling the Show New Only toggle button
+>>>>>>> origin/main
         document.getElementById('toggle_new_only').addEventListener('click', function() {
             const button = this;
             const input = document.getElementById('show_new_only');

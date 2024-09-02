@@ -1,6 +1,7 @@
 <?php
 require '../db.php';
 
+<<<<<<< HEAD
 if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร์ 'id'
     $id = $_GET['id'];
 
@@ -11,6 +12,15 @@ if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร
     $sql = "SELECT * FROM claims WHERE id = :id"; // เปลี่ยนเป็น 'id' แทน 'item'
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $id);
+=======
+if (isset($_GET['item'])) {
+    $item = $_GET['item'];
+
+    // ดึงข้อมูล Clam ตาม Item ที่ระบุ
+    $sql = "SELECT * FROM claims WHERE item = :item";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':item', $item);
+>>>>>>> origin/main
     $stmt->execute();
     $claim = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -84,7 +94,11 @@ if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร
                     final_status = :final_status,
                     complete_date = :complete_date,
                     duration_date = :duration_date
+<<<<<<< HEAD
                 WHERE id = :id"; // เปลี่ยนเป็น 'id' แทน 'item'
+=======
+                WHERE item = :item";
+>>>>>>> origin/main
 
         try {
             $stmt = $conn->prepare($sql);
@@ -107,7 +121,11 @@ if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร
             $stmt->bindParam(':final_status', $final_status);
             $stmt->bindParam(':complete_date', $complete_date);
             $stmt->bindParam(':duration_date', $duration_date);
+<<<<<<< HEAD
             $stmt->bindParam(':id', $id);
+=======
+            $stmt->bindParam(':item', $item);
+>>>>>>> origin/main
 
             if ($stmt->execute()) {
                 header("Location: indexclam.php");
@@ -125,7 +143,10 @@ if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร
 }
 ?>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,6 +193,7 @@ if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร
 </head>
 
 <body>
+<<<<<<< HEAD
 <form method="POST" action="update_clam.php?id=<?= htmlspecialchars($id) ?>">
     <div class="container mt-3">
         <div class="header-container">
@@ -179,6 +201,15 @@ if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร
             <div class="button-group">
                 <a href="indexclam.php" class="btn btn-secondary">Back</a>
                 <button type="submit" class="btn btn-primary">Update</button>
+=======
+    <form method="post" action="update_clam.php?item=<?= htmlspecialchars($item) ?>">
+        <div class="container mt-3">
+            <div class="header-container">
+                <h2>Update Claim Report</h2>
+                <div class="button-group">
+                    <a href="indexclam.php" class="btn btn-secondary">Back</a>
+                    <button type="submit" class="btn btn-primary">Update</button>
+>>>>>>> origin/main
                 </div>
             </div>
             <div class="form-row">
@@ -378,4 +409,8 @@ if (isset($_GET['id'])) { // ตรวจสอบพารามิเตอร
     </script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/main

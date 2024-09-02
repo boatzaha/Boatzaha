@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Register</title>
     <link rel="icon" href="image/HOWDENLOGO.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/stylesregister.css"> <!-- ใช้ไฟล์ CSS เดิมที่เรามี -->
 </head>
 <body>
@@ -93,6 +94,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
+=======
+    <style>
+        .register-container {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="register-container">
+            <img src="image/HOWDENLOGO.png" alt="Logo" class="logo" width="150">
+            <h2 class="text-center">Register</h2>
+            <?php if (isset($error_message)): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($error_message) ?></div>
+            <?php endif; ?>
+            <form method="post" action="register.php">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+            <a href="login.php" class="btn btn-link d-block text-center mt-3">Login</a>
+        </div>
+>>>>>>> origin/main
     <div class="footer">
         <p>Copyright © Boat Patthanapong.URU Version 1.0.0</p>
     </div>
