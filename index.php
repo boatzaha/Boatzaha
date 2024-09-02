@@ -144,7 +144,7 @@ function getStatusClass($status) {
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <?php if ($role != 'officer'): ?>
                         <a class="dropdown-item" href="dashboard.php">Permission</a>
-                        <a class="dropdown-item" href="dashboard2.php">Dashboard</a>
+                        <!-- <a class="dropdown-item" href="dashboard2.php">Dashboard</a> -->
                     <?php endif; ?>
                     <a class="dropdown-item" href="index.php">Add Customer</a>
                     <a class="dropdown-item" href="clamdb/indexclam.php">Claim Reports</a>

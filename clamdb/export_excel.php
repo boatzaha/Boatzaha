@@ -8,21 +8,23 @@ use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
-// ตรวจสอบการกรองข้อมูลจากวันที่และข้อมูลที่เป็น New
-$export_date = isset($_GET['export_date']) ? $_GET['export_date'] : null;
+// ตรวจสอบการกรองข้อมูลจากวันที่และชื่อบริษัท
+$start_date = $_GET['start_date'] ?? null;
+$end_date = $_GET['end_date'] ?? null;
+$company_name = $_GET['company_name'] ?? null;
 $show_new_only = isset($_GET['show_new_only']) && $_GET['show_new_only'] === '1';
 
 // สร้าง Spreadsheet และ Worksheet
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
-// ตั้งชื่อหัวตาราง
+// ตั้งชื่อหัวตาราง (Headers)
 $headers = [
-    'A1' => 'Item', 'B1' => 'Receive Date', 'C1' => 'Recore Date', 'D1' => 'Company Name', 
-    'E1' => 'Insurance', 'F1' => 'Policy', 'G1' => 'Insure Name', 'H1' => 'Date Treatment', 
-    'I1' => 'Claim Type', 'J1' => 'Hosp/Clinic', 'K1' => 'Diagnosis', 'L1' => 'Bill Amount', 
-    'M1' => 'Remark', 'N1' => 'Status', 'O1' => 'Paid Amount', 'P1' => 'Declined Amount', 
-    'Q1' => 'TF Date', 'R1' => 'Final Status', 'S1' => 'Complete Date', 'T1' => 'Duration Date', 
+    'A1' => 'Item', 'B1' => 'Receive Date', 'C1' => 'Recore Date', 'D1' => 'Company Name',
+    'E1' => 'Insurance', 'F1' => 'Policy', 'G1' => 'Insure Name', 'H1' => 'Date Treatment',
+    'I1' => 'Claim Type', 'J1' => 'Hosp/Clinic', 'K1' => 'Diagnosis', 'L1' => 'Bill Amount',
+    'M1' => 'Remark', 'N1' => 'Status', 'O1' => 'Paid Amount', 'P1' => 'Declined Amount',
+    'Q1' => 'TF Date', 'R1' => 'Final Status', 'S1' => 'Complete Date', 'T1' => 'Duration Date',
     'U1' => 'Created By'
 ];
 
@@ -45,8 +47,12 @@ foreach ($headers as $cell => $header) {
 // ดึงข้อมูลจากฐานข้อมูลพร้อมการกรอง
 $sql = "SELECT * FROM claims WHERE 1=1";
 
-if ($export_date) {
-    $sql .= " AND DATE(created_at) = :export_date";
+if ($start_date && $end_date) {
+    $sql .= " AND (recore_date BETWEEN :start_date AND :end_date OR complete_date BETWEEN :start_date AND :end_date)";
+}
+
+if ($company_name) {
+    $sql .= " AND company_name LIKE :company_name";
 }
 
 if ($show_new_only) {
@@ -55,8 +61,14 @@ if ($show_new_only) {
 
 $stmt = $conn->prepare($sql);
 
-if ($export_date) {
-    $stmt->bindParam(':export_date', $export_date);
+if ($start_date && $end_date) {
+    $stmt->bindParam(':start_date', $start_date);
+    $stmt->bindParam(':end_date', $end_date);
+}
+
+if ($company_name) {
+    $company_name_param = '%' . $company_name . '%';
+    $stmt->bindParam(':company_name', $company_name_param);
 }
 
 $stmt->execute();
@@ -113,4 +125,5 @@ header('Cache-Control: max-age=0');
 $writer = new Xlsx($spreadsheet);
 $writer->save('php://output');
 exit();
+
 ?>
